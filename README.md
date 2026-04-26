@@ -141,7 +141,11 @@ Reports progress back to the MCP client as each message is processed.
 
 ## Connecting to Claude Desktop
 
-Add the server to your `claude_desktop_config.json`:
+Add the server to your `claude_desktop_config.json`.
+
+**Option A — dependencies installed globally**
+
+If you installed the dependencies globally (or via `uv` without a local virtualenv), this is enough:
 
 ```json
 {
@@ -153,6 +157,36 @@ Add the server to your `claude_desktop_config.json`:
   }
 }
 ```
+
+**Option B — local virtual environment (`.venv`)**
+
+If you created a local virtual environment (e.g. with `uv sync` or `python -m venv .venv`), point `command` directly to the Python executable inside that environment and pass the full absolute path to `server.py` as the argument:
+
+- **Windows**
+```json
+{
+  "mcpServers": {
+    "mcp-sms-reader": {
+      "command": "C:\\path\\to\\mcp-sms-reader\\.venv\\Scripts\\python.exe",
+      "args": ["C:\\path\\to\\mcp-sms-reader\\server.py"]
+    }
+  }
+}
+```
+
+- **macOS / Linux**
+```json
+{
+  "mcpServers": {
+    "mcp-sms-reader": {
+      "command": "/path/to/mcp-sms-reader/.venv/bin/python",
+      "args": ["/path/to/mcp-sms-reader/server.py"]
+    }
+  }
+}
+```
+
+Replace `/path/to/mcp-sms-reader` (or the Windows equivalent) with the actual absolute path to the cloned repository on your machine.
 
 ---
 
