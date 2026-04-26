@@ -99,15 +99,37 @@ Use this tool first to discover the exact device identifier needed for the other
 
 ---
 
+### `android_device_name`
+
+Returns the human-readable name of a connected Android device given its device ID.
+
+**Parameters:**
+
+| Name        | Type   | Description                                                         |
+|-------------|--------|---------------------------------------------------------------------|
+| `device_id` | string | The device identifier returned by `list_all_android_devices_connected` |
+
+**Returns:**
+
+A dictionary mapping the device ID to its configured name:
+
+```json
+{
+  "XXXXXXXXXXXXXXXX": "My Phone"
+}
+```
+
+---
+
 ### `read_all_sms`
 
 Reads all SMS messages from the inbox of a specific Android device.
 
 **Parameters:**
 
-| Name          | Type   | Description                                                         |
-|---------------|--------|---------------------------------------------------------------------|
-| `device_name` | string | The device identifier returned by `list_all_android_devices_connected` |
+| Name        | Type   | Description                                                         |
+|-------------|--------|---------------------------------------------------------------------|
+| `device_id` | string | The device identifier returned by `list_all_android_devices_connected` |
 
 **Returns:**
 
@@ -123,11 +145,11 @@ Reads all SMS messages received between two dates from the inbox of a specific A
 
 **Parameters:**
 
-| Name          | Type     | Description                                                         |
-|---------------|----------|---------------------------------------------------------------------|
-| `device_name` | string   | The device identifier returned by `list_all_android_devices_connected` |
-| `start`       | datetime | Start of the date range (inclusive)                                 |
-| `end`         | datetime | End of the date range (inclusive)                                   |
+| Name        | Type     | Description                                                         |
+|-------------|----------|---------------------------------------------------------------------|
+| `device_id` | string   | The device identifier returned by `list_all_android_devices_connected` |
+| `start`     | datetime | Start of the date range (inclusive)                                 |
+| `end`       | datetime | End of the date range (inclusive)                                   |
 
 **Returns:**
 
@@ -141,10 +163,10 @@ Reads the first `n` SMS messages from the inbox of a specific Android device.
 
 **Parameters:**
 
-| Name          | Type   | Description                                                         |
-|---------------|--------|---------------------------------------------------------------------|
-| `device_name` | string | The device identifier returned by `list_all_android_devices_connected` |
-| `n`           | int    | Number of messages to read from the beginning of the inbox          |
+| Name        | Type   | Description                                                         |
+|-------------|--------|---------------------------------------------------------------------|
+| `device_id` | string | The device identifier returned by `list_all_android_devices_connected` |
+| `n`         | int    | Number of messages to read from the beginning of the inbox          |
 
 **Returns:**
 
