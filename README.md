@@ -12,7 +12,7 @@ ADB must be installed and available in your system `PATH`.
 
 - **Windows**: Download the [Android SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools) and add the extracted folder to your `PATH` environment variable.
 - **macOS**: `brew install android-platform-tools`
-- **Linux (Debian/Ubuntu)**: `sudo apt install adb`
+- **Linux (Debian/Ubuntu)**: Download the [Android SDK Platform Tools](https://developer.android.com/tools/releases/platform-tools) and add the extracted folder to your `PATH` environment variable.
 
 Verify the installation:
 
