@@ -99,6 +99,42 @@ Use this tool first to discover the exact device identifier needed for the other
 
 ---
 
+### `read_all_sms`
+
+Reads all SMS messages from the inbox of a specific Android device.
+
+**Parameters:**
+
+| Name          | Type   | Description                                                         |
+|---------------|--------|---------------------------------------------------------------------|
+| `device_name` | string | The device identifier returned by `list_all_android_devices_connected` |
+
+**Returns:**
+
+A dictionary where each key is `"Message 1"`, `"Message 2"`, etc., and each value is a flat dictionary of SMS fields (e.g., `address`, `date`, `body`, `read`, `type`, and others).
+
+Reports progress back to the MCP client as each message is processed.
+
+---
+
+### `read_sms_between_dates`
+
+Reads all SMS messages received between two dates from the inbox of a specific Android device.
+
+**Parameters:**
+
+| Name          | Type     | Description                                                         |
+|---------------|----------|---------------------------------------------------------------------|
+| `device_name` | string   | The device identifier returned by `list_all_android_devices_connected` |
+| `start`       | datetime | Start of the date range (inclusive)                                 |
+| `end`         | datetime | End of the date range (inclusive)                                   |
+
+**Returns:**
+
+A dictionary where each key is `"Message 1"`, `"Message 2"`, etc., and each value is a flat dictionary of SMS fields for messages whose timestamp falls within the specified range.
+
+---
+
 ### `read_first_n_sms`
 
 Reads the first `n` SMS messages from the inbox of a specific Android device.
