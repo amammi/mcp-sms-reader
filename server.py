@@ -9,19 +9,19 @@ mcp = FastMCP(name="MCP SMS Android reader", instructions="This server is used f
 
 @mcp.tool("list_all_android_devices_connected")
 async def list_devices():
-    """Tool for find all Android devices connected to PC"""
+    """Tool for finding all Android devices connected to PC"""
 
     return { "devices_connected": AdbDevice.list_devices() }
 
 @mcp.tool("read_first_n_sms")
 async def read_first_n_sms(device_name: str, n: int, ctx: Context):
-    """Given device_name as string, n in input as int number representing the number of first n sms to read, 
-    this tool extract the first n sms saved in Android device through ADB"""
+    """Given device_name as string, n as int number representing the number of first n sms to read, 
+    this tool extracts the first n sms saved in Android device through ADB"""
 
     try:
         device = AdbDevice(device=device_name)
     except Exception:
-        return f"Error while trying to connect to device {device}. Is {device_name} connected or correct name?"
+        return f"Error while trying to connect to device {device}. Is {device_name} connected or is the correct name?"
     result_command = device.shell("content query --uri content://sms/inbox")
     rows = result_command.stdout.split("Row: ")[1::]
     messages = {}
