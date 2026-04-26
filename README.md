@@ -152,7 +152,7 @@ If you installed the dependencies globally (or via `uv` without a local virtuale
   "mcpServers": {
     "mcp-sms-reader": {
       "command": "uv",
-      "args": ["run", "server.py"]
+      "args": ["run", "/path/to/mcp-sms-reader/server.py"]
     }
   }
 }
